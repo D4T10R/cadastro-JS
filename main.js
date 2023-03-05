@@ -1,9 +1,3 @@
-console.log("Hello word!")
+var consultaCep = fetch('https://viacep.com.br/ws/01001000/json/')
 
-function mensagem() {
-    console.log("Como você está?")
-}
-
-console.log("Me diga?")
-mensagem()
-console.log("Faz oq?")
+console.log(consultaCep)
