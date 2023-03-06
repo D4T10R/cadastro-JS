@@ -1,0 +1,3 @@
+SICRONO: Uma tarega é concluida após outra 
+
+ASSICRONO: Há tarefas executadas em "Segundo plano"
