@@ -1,3 +1,10 @@
 SICRONO: Uma tarega é concluida após outra 
 
 ASSICRONO: Há tarefas executadas em "Segundo plano"
+
+
+THEN = então
+CATCH = pegue
+FINALLY = finaliza (acontece independente de qualquer coisa)
+
+ARROW FUNCTIONs = funções
