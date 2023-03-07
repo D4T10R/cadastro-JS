@@ -1,19 +1,47 @@
 
-
 async function buscaEndereco (cep) {
+
+    var menssagemErro = document.getElementById('erro')
+
     try {
+
+        menssagemErro.innerHTML = ('')
+      
         var consultaCep = await fetch(`https://viacep.com.br/ws/${cep}/json/`)
         var consultaCEPconvertida = await consultaCep.json()
+
         if (consultaCEPconvertida.erro) {
             throw Error("CEP não encontrado!!!")
         }
 
+        var cidade = document.getElementById('cidade')
+        var rua = document.getElementById('endereco')
+        var estado = document.getElementById('estado')
+        
+        cidade.value = consultaCEPconvertida.localidade;
+        rua.value = consultaCEPconvertida.logradouro;
+        estado.value = consultaCEPconvertida.uf;
+    
+
+
         console.log(consultaCEPconvertida)
         return consultaCEPconvertida;
     } catch (erro) {
+    
+
+        menssagemErro.innerHTML = ('<p> CEP inválido </p>')
         console.log(erro)
     }
+
+
 }
+
+const campoDigitacaoCEP = document.getElementById('cep')
+campoDigitacaoCEP.addEventListener("focusout", () => buscaEndereco(campoDigitacaoCEP.value))
+
+
+
+
 /*
     .then(resposta => resposta.json())
     .then(r => {
@@ -25,13 +53,6 @@ async function buscaEndereco (cep) {
     .catch(erro => console.log(erro))
     .finally(mensagem => console.log("Bloco  finalizado!!!"))
 */
-
-
-
-
-
-
-
 
 /* FORMA DE FAZER VARIAS REQUISIÇÔES
 
